@@ -5,10 +5,10 @@ const db = config.db;
 
 const addTask = async (taskContent) => {
   try {
-    const { title, description, dueDate } = taskContent;
+    const { title, description, dueDate, status } = taskContent;
     const [result] = await db.execute(
-      "INSERT INTO `tasks` (`title`, `description`, `dueDate`, `date_added`) VALUES (?, ?, ?, NOW())",
-      [title, description, dueDate]
+      "INSERT INTO `tasks` (`title`, `description`, `dueDate`, `date_added` , `status`) VALUES (?, ?, ?, ?, NOW())",
+      [title, description, dueDate, status]
     );
     return result;
   } catch (error) {
@@ -42,10 +42,10 @@ const getTaskByID = async (id) => {
 
 const updateTask = async (id, taskContent) => {
   try {
-    const { title, description, dueDate } = taskContent;
+    const { title, description, dueDate, status } = taskContent;
     const [result] = await db.execute(
-      "UPDATE `tasks` SET `title` = ?, `description` = ?, `dueDate` = ?  WHERE `id` = ?",
-      [title, description, dueDate, id]
+      "UPDATE `tasks` SET `title` = ?, `description` = ?, `dueDate` = ?, `status` = ?  WHERE `id` = ?",
+      [title, description, dueDate, status, id]
     );
     return result;
   } catch (error) {
