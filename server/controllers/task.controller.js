@@ -5,7 +5,7 @@ const {
   deleteTask,
 } = require("../models/task.model");
 
-const getTask = async (req, res) => {
+const get = async (req, res) => {
   try {
     const tasks = await getTask();
     res.status(200).json({ status: 200, data: tasks });
@@ -17,7 +17,7 @@ const getTask = async (req, res) => {
   }
 };
 
-const addTask = async (req, res) => {
+const add = async (req, res) => {
   try {
     const taskContent = req.body;
     const result = await addTask(taskContent);
@@ -34,7 +34,7 @@ const addTask = async (req, res) => {
   }
 };
 
-const updateTask = async (req, res) => {
+const update = async (req, res) => {
   try {
     const id = req.params.id;
     const messageContent = req.body;
@@ -45,33 +45,33 @@ const updateTask = async (req, res) => {
       data: messageContent,
     });
   } catch (error) {
-    console.error("Update message Error:", error); // Debugging: Log error
+    console.error("Update tasks Error:", error); // Debugging: Log error
     res
       .status(500)
-      .json({ error: "Failed to update message", details: error.message });
+      .json({ error: "Failed to update task", details: error.message });
   }
 };
 
-const deleteTask = async (req, res) => {
+const deleteTasks = async (req, res) => {
   try {
     const id = req.params.id;
-    const result = await deleteMessage(id);
+    const result = await deleteTask(id);
     res.status(200).json({
       status: 200,
-      message: "Message deleted successfully",
+      message: "Tasks deleted successfully",
       data: result,
     });
   } catch (error) {
-    console.error("Delete message Error:", error); // Debugging: Log error
+    console.error("Delete tasks Error:", error); // Debugging: Log error
     res
       .status(500)
-      .json({ error: "Failed to delete message", details: error.message });
+      .json({ error: "Failed to delete Tasks", details: error.message });
   }
 };
 
 module.exports = {
-  getTask,
-  addTask,
-  updateTask,
-  deleteTask,
+  get,
+  add,
+  update,
+  deleteTasks,
 };
