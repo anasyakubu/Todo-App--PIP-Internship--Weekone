@@ -9,6 +9,7 @@ const AddTask = () => {
     title: "",
     description: "",
     dueDate: "",
+    status: "",
   });
 
   const handleChange = (e) => {
@@ -78,6 +79,20 @@ const AddTask = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
             />
+          </div>
+          <div className="mb-4">
+            <select
+              name=""
+              id=""
+              value={task.status}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              required
+            >
+              <option>Pending</option>
+              <option>Success</option>
+              <option>Expire</option>
+            </select>
           </div>
           <div className="flex items-center justify-between">
             <button

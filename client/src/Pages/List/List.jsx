@@ -39,6 +39,7 @@ const List = () => {
       </div>
       <div className="mt-20">
         <div className="container mx-auto p-4">
+          <h1 className="text-5xl py-10">Todo App</h1>
           <table className="table-auto w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-200">
@@ -47,6 +48,7 @@ const List = () => {
                   Description
                 </th>
                 <th className="border border-gray-300 px-4 py-2">Due Date</th>
+                <th className="border border-gray-300 px-4 py-2">Status</th>
                 <th className="border border-gray-300 px-4 py-2">Action</th>
               </tr>
             </thead>
@@ -61,6 +63,9 @@ const List = () => {
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
                     {new Date(item.dueDate).toLocaleDateString()}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {item.status}
                   </td>
                   <td className="border border-gray-300 px-4 py-2 flex gap-3">
                     <Link
