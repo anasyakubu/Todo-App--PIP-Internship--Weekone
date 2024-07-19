@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Create corsOptions object with your desired configuration
 const corsOptions = {
-  origin: ["http://localhost:3000", "http://localhost:5173"], // Set the allowed origin
+  origin: ["http://localhost:5173", "http://localhost:5174"], // Set the allowed origin
   methods: "GET,POST,DELETE,PUT", // Set the allowed HTTP methods
   optionsSuccessStatus: 200, // Set the status code for successful preflight requests
 };
