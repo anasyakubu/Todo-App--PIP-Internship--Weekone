@@ -13,9 +13,10 @@ const UpdateTask = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9000/api/task/update/${id}`)
+      .get(`http://localhost:9000/api/task/get/${id}`)
       .then((response) => {
-        setTask(response.data);
+        setTask(response.data.data);
+        console.log(response.data.data);
       })
       .catch((error) => {
         console.error("There was an error fetching the task!", error);
