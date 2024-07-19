@@ -1,5 +1,6 @@
 const {
   getTask,
+  getTaskByID,
   addTask,
   updateTask,
   deleteTask,
@@ -14,6 +15,19 @@ const get = async (req, res) => {
     res
       .status(500)
       .json({ error: "Failed to retrieve messages", details: error.message });
+  }
+};
+
+const getByID = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const task = await getTaskByID(id);
+    res.status(200).json({ status: 200, data: task });
+  } catch (error) {
+    console.error("Get task Error:", error);
+    res
+      .status(500)
+      .json({ error: "Failed to retrieve task", details: error.message });
   }
 };
 
@@ -71,6 +85,7 @@ const deleteTasks = async (req, res) => {
 
 module.exports = {
   get,
+  getByID,
   add,
   update,
   deleteTasks,

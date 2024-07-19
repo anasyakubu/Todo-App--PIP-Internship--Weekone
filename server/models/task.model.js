@@ -27,6 +27,19 @@ const getTask = async () => {
   }
 };
 
+const getTaskByID = async (id) => {
+  try {
+    const [rows] = await db.execute("SELECT * FROM `tasks` WHERE id = ?", [id]);
+    if (rows.length === 0) {
+      throw new Error(`Task with ID ${id} not found`);
+    }
+    return rows[0];
+  } catch (error) {
+    console.error("Database Query Error:", error);
+    throw new Error("Failed to retrieve task from the database");
+  }
+};
+
 const updateTask = async (id, taskContent) => {
   try {
     const { title, description, dueDate } = taskContent;
@@ -53,4 +66,4 @@ const deleteTask = async (id) => {
   }
 };
 
-module.exports = { getTask, addTask, updateTask, deleteTask };
+module.exports = { getTask, getTaskByID, addTask, updateTask, deleteTask };
