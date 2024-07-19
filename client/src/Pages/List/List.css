@@ -1,0 +1,29 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.table-auto {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-auto th,
+.table-auto td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.table-auto thead {
+  background-color: #f8f8f8;
+}
+
+.table-auto tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-auto tbody tr:hover {
+  background-color: #e2e2e2;
+}
