@@ -94,7 +94,7 @@ const UpdateTask = () => {
           </div>
           <div className="mb-4">
             <select
-              name=""
+              name="status"
               id=""
               value={task.status}
               onChange={handleChange}

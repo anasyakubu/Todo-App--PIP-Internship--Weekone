@@ -82,16 +82,16 @@ const AddTask = () => {
           </div>
           <div className="mb-4">
             <select
-              name=""
+              name="status"
               id=""
               value={task.status}
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
             >
-              <option>Pending</option>
-              <option>Success</option>
-              <option>Expire</option>
+              <option value={"Pending"}>Pending</option>
+              <option value={"Success"}>Success</option>
+              <option value={"Expire"}>Expire</option>
             </select>
           </div>
           <div className="flex items-center justify-between">
