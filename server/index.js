@@ -16,7 +16,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/messages", router);
+app.use("/api/task", router);
 
 const PORT = config.port;
 
