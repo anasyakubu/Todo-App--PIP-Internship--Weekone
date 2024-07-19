@@ -31,7 +31,7 @@ const updateTask = async (id, taskContent) => {
   try {
     const { title, description, dueDate } = taskContent;
     const [result] = await db.execute(
-      "UPDATE `tasks` SET `title` = ?, `description` = ?, `dueDate` = ?  WHERE `taskID` = ?",
+      "UPDATE `tasks` SET `title` = ?, `description` = ?, `dueDate` = ?  WHERE `id` = ?",
       [title, description, dueDate, id]
     );
     return result;
@@ -43,10 +43,9 @@ const updateTask = async (id, taskContent) => {
 
 const deleteTask = async (id) => {
   try {
-    const [result] = await db.execute(
-      "DELETE FROM `tasks` WHERE `taskID` = ?",
-      [id]
-    );
+    const [result] = await db.execute("DELETE FROM `tasks` WHERE `id` = ?", [
+      id,
+    ]);
     return result;
   } catch (error) {
     console.error("Database Delete Error:", error);

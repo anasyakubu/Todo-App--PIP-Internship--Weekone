@@ -24,7 +24,7 @@ const add = async (req, res) => {
     res.status(201).json({
       status: 201,
       message: "Task added successfully",
-      data: result,
+      data: taskContent,
     });
   } catch (error) {
     console.error("Add message Error:", error); // Debugging: Log error
@@ -37,12 +37,12 @@ const add = async (req, res) => {
 const update = async (req, res) => {
   try {
     const id = req.params.id;
-    const messageContent = req.body;
-    const result = await updateMessage(id, messageContent);
+    const taskContent = req.body;
+    const result = await updateTask(id, taskContent);
     res.status(200).json({
       status: 200,
-      message: "Message updated successfully",
-      data: messageContent,
+      message: "Task updated successfully",
+      data: taskContent,
     });
   } catch (error) {
     console.error("Update tasks Error:", error); // Debugging: Log error
