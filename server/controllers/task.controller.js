@@ -41,10 +41,10 @@ const add = async (req, res) => {
       data: taskContent,
     });
   } catch (error) {
-    console.error("Add message Error:", error); // Debugging: Log error
+    console.error("Add task Error:", error); // Debugging: Log error
     res
       .status(500)
-      .json({ error: "Failed to add message", details: error.message });
+      .json({ error: "Failed to add task", details: error.message });
   }
 };
 

@@ -7,7 +7,7 @@ const addTask = async (taskContent) => {
   try {
     const { title, description, dueDate, status } = taskContent;
     const [result] = await db.execute(
-      "INSERT INTO `tasks` (`title`, `description`, `dueDate`, `date_added` , `status`) VALUES (?, ?, ?, ?, ?, NOW())",
+      "INSERT INTO `tasks` (`title`, `description`, `dueDate`, `status`, `date_added`) VALUES (?, ?, ?, ?, NOW())",
       [title, description, dueDate, status]
     );
     return result;
